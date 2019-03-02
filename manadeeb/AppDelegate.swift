@@ -7,40 +7,103 @@
 //
 
 import UIKit
+import GoogleMaps
+import GooglePlaces
+import SocketIO
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var firstTabNavigationController : UINavigationController!
+    var secondTabNavigationControoller : UINavigationController!
+    var thirdTabNavigationControoller : UINavigationController!
+    
+    let defualts = UserDefaults.standard
+    var socketid = String()
+    
+    let manager = SocketManager(socketURL: URL(string: "http://codesroots.com:2400")!, config: [.log(true), .compress])
+    
+    
+    var vc = UIViewController()
 
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        
+        
+        
+        let socket =  manager.defaultSocket
+        socket.connect()
+        socket.on("user_connection", callback:{ data, ack in
+            if self.socketid == nil {
+                self.socketid = data[0] as! String
+            }
+        })
+        // setup navBar.....
+        UINavigationBar.appearance().barTintColor = UIColor.rgb(104, green: 31, blue: 109)
+        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().isTranslucent = false
+        GMSPlacesClient.provideAPIKey("AIzaSyDK2PpcLlIHlgyNCLNH0cIIOxr_o9OIomM")
+        ////////// change  font  of  segmented controller
+        let attr = NSDictionary(object: UIFont(name: "DroidArabicKufi", size: 15)!, forKey: NSAttributedStringKey.font as NSCopying)
+        UISegmentedControl.appearance().setTitleTextAttributes(attr as [NSObject : AnyObject] , for: .normal)
+        
+        ////////// change  font  of   uibarButton
+        UIBarButtonItem.appearance().setTitleTextAttributes(
+            [
+                NSAttributedStringKey.font : UIFont(name: "DroidArabicKufi", size: 14)!,
+                NSAttributedStringKey.foregroundColor : UIColor.white,
+                ], for: .normal)
+        ////////////
+        
+        
+        /////////////
+        let tabBarController = UITabBarController()
+        let layout = UICollectionViewFlowLayout()
+        firstTabNavigationController = UINavigationController.init(rootViewController: MainPageController(collectionViewLayout:layout ))
+        secondTabNavigationControoller = UINavigationController.init(rootViewController: ChatListController(collectionViewLayout:layout ))
+        thirdTabNavigationControoller = UINavigationController.init(rootViewController : LoginController())
+        tabBarController.viewControllers = [firstTabNavigationController, secondTabNavigationControoller,thirdTabNavigationControoller]
+        
+        
+         vc = MainProductController(collectionViewLayout:layout )
+        
+        
+        let item1 = UITabBarItem(title: "الرئيسية", image: UIImage(named: "house-outline١"), tag: 0)
+        let item2 = UITabBarItem(title: "المحادثات", image:  UIImage(named: "thinking١"), tag: 1)
+        
+        if defualts.value(forKey: "company_id") != nil {
+            let item3 = UITabBarItem(title: "تسجيل خروج", image:  UIImage(named: "user (2)"), tag: 2)
+            thirdTabNavigationControoller.tabBarItem = item3
+        }else{
+            let item3 = UITabBarItem(title: "تسجيل دخول", image:  UIImage(named: "user (2)"), tag: 2)
+            thirdTabNavigationControoller.tabBarItem = item3
+        }
+        
+        firstTabNavigationController.tabBarItem = item1
+        secondTabNavigationControoller.tabBarItem = item2
+         if defualts.value(forKey: "company_id") != nil {
+         tabBarController.selectedViewController = firstTabNavigationController
+         }else{
+        tabBarController.selectedViewController = thirdTabNavigationControoller
+        }
+        
+        /////// check if there is Internet Connection Available!
+        if Reachability.isConnectedToNetwork(){
+        print("Internet Connection Available!")
+        }else{
+        print("Internet Connection not Available!")
+        var alert = UIAlertView(title: "عفوا", message: "لا يوجد اتصال بالانترنت", delegate: nil, cancelButtonTitle: "موافق")
+        alert.show()
+        }
+        
+        UITabBar.appearance().tintColor =  UIColor.rgb(104, green: 31, blue: 109)
+        self.window?.rootViewController = tabBarController
         return true
+    
+    
     }
-
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
-
 }
 
