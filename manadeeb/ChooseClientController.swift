@@ -12,8 +12,6 @@ import UIKit
 
 class ChooseClientController : ClientController {
     
-
-    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
     }
@@ -31,15 +29,10 @@ class ChooseClientController : ClientController {
         prsenter?.goToChooseDelivetyPage(clientid: data[indexPath.item].id!)
         
     }
-    
-    
-    
     override func viewDidLoad() {
        super.viewDidLoad()
-        
         navigationController?.navigationBar.barTintColor = UIColor.rgb(48, green: 39, blue: 133)
         collectionView?.register(ChooseClientView.self, forCellWithReuseIdentifier: cell)
-        
         collectionView?.isScrollEnabled = true
         var titleLabel = UILabel()
         titleLabel = UILabel(frame: CGRect(x:view.frame.width/2, y: 20, width:0, height: view.frame.height))

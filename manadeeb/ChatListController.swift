@@ -31,11 +31,11 @@ class ChatListController  : UICollectionViewController , UICollectionViewDelegat
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if data[indexPath.item].users2?.delivries![0].id != nil {
-        prsenter?.goToChatpage(presentingViewController: self,roomid: (data[indexPath.item].chats2?.roomID)!, userid: (data[indexPath.item].users2?.delivries![0].id)!)
-        }else{
-            prsenter?.goToChatpage(presentingViewController: self,roomid: (data[indexPath.item].chats2?.roomID)!, userid: (data[indexPath.item].users1!.delivries![0].id))
-            
+        if data[indexPath.item].users2 != nil {
+            prsenter?.goToChatpage(presentingViewController: self, data: (data[indexPath.item].users2?.delivries![0])!,roomid: (data[indexPath.item].chats2?.roomID)!,userid: (data[indexPath.item].users2?.id)!)
+        } else {
+            prsenter?.goToChatpage(presentingViewController: self,data:(data[indexPath.item].users1?.delivries![0])!,roomid: (data[indexPath.item].chats2?.roomID)!,userid: (data[indexPath.item].users1!.id)!)
+
         }
     }
     
@@ -86,7 +86,7 @@ class ChatListController  : UICollectionViewController , UICollectionViewDelegat
 
             }
         })
-        
+
         collectionView?.contentInset = UIEdgeInsetsMake(20, 0, 0, 0)
         collectionView?.backgroundColor = UIColor.rgb(230, green: 234, blue: 237)
         navigationController?.navigationBar.barTintColor = UIColor.rgb(48, green: 39, blue: 133)

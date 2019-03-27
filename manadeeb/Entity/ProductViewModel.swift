@@ -13,7 +13,7 @@ struct ProductViewModel {
     let photo: String?
     let company_id: Int?
     let created: String?
-    let total_result : Int
+    let total_result : String
     let productamount : String?
     var insertamount : String?
     
@@ -30,7 +30,7 @@ struct ProductViewModel {
         if product.total_result != nil{
         self.total_result = product.total_result!
         }else{
-        self.total_result = 0
+        self.total_result = "0"
         }
         self.productamount = product.productamount
     }

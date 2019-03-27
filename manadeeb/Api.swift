@@ -87,10 +87,10 @@ class ApiService : NSObject {
     }
     ///////
     
-    func Login (URL:String,dataarr:[String:String]?,completion:@escaping ([String:AnyObject])->()){
+    func Login (URL:String,dataarr:[String : Any]?,completion:@escaping ([String:AnyObject])->()){
         //   guard let ratess = dataarr else { return }
         
-        let parameters = dataarr as! Dictionary<String, String>
+        let parameters = dataarr as! Dictionary<String, Any>
         
         let configuration = URLSessionConfiguration .default
         let session = URLSession(configuration: configuration)

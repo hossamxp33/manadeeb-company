@@ -18,8 +18,8 @@ class ClientLocation : UIViewController, GMSMapViewDelegate {
     var prsenter : ReportsPsrsenterProtocol?
     
     ////// Store lat long
-    var client_lat : String?
-    var client_long : String?
+    var client_lat : Double?
+    var client_long : Double?
     
     
     override func viewDidLoad() {
@@ -29,10 +29,10 @@ class ClientLocation : UIViewController, GMSMapViewDelegate {
         googlemap.widthAnchor.constraint(equalTo:  view.widthAnchor).isActive = true
         googlemap.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
         
-        googlemap.camera = GMSCameraPosition.camera(withLatitude: Double(client_lat!)!, longitude: Double(client_long!)! , zoom: 5, bearing: 0, viewingAngle: 0)
+        googlemap.camera = GMSCameraPosition.camera(withLatitude:client_lat!, longitude: client_long! , zoom: 15, bearing: 0, viewingAngle: 0)
         
         
-        self.state_markers1.position = CLLocationCoordinate2D(latitude: Double(client_lat!)!,longitude : Double(client_long!)!)
+        self.state_markers1.position = CLLocationCoordinate2D(latitude: client_lat!,longitude :client_long!)
         self.state_markers1.infoWindowAnchor = CGPoint(x: 0.5, y: 0.5)
         self.state_markers1.appearAnimation = .pop
         self.state_markers1.isFlat = true

@@ -10,6 +10,7 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 import SocketIO
+import OneSignal
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,20 +24,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var socketid = String()
     
     let manager = SocketManager(socketURL: URL(string: "http://codesroots.com:2400")!, config: [.log(true), .compress])
-    
+
     
     var vc = UIViewController()
 
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        
-        
-        
+
+
+        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
+
+        // Replace 'YOUR_APP_ID' with your OneSignal App ID.
+        OneSignal.initWithLaunchOptions(launchOptions,
+                                        appId: "85ae1d79-4c03-41b3-be35-eaccc1d884b3",
+                                        handleNotificationAction: nil,
+                                        settings: onesignalInitSettings)
+
+        OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification;
+
+        // Recommend moving the below line to prompt for push after informing the user about
+        //   how your app will use them.
+        OneSignal.promptForPushNotifications(userResponse: { accepted in
+            print("User accepted notifications: \(accepted)")
+        })
+
         let socket =  manager.defaultSocket
         socket.connect()
+        print(self.socketid)
         socket.on("user_connection", callback:{ data, ack in
-            if self.socketid == nil {
+            if self.socketid == "" {
                 self.socketid = data[0] as! String
             }
         })
@@ -104,6 +120,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     
     
+    }
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+        NotificationCenter.default.post(name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+
+
+        // if defaults.value(forKey: "status")! as! NSNumber != 1 {
+        // NotificationCenter.default.post(name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+        //    }
+
     }
 }
 

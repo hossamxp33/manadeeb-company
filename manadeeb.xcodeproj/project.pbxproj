@@ -12,6 +12,7 @@
 		04034E9021B3EC5200375B7E /* URWGeometricArabic-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04034E8F21B3EC5200375B7E /* URWGeometricArabic-Black.ttf */; };
 		0404297B2228259B00778D01 /* ChatBetwwenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0404297A2228259B00778D01 /* ChatBetwwenModel.swift */; };
 		0404297E222825B100778D01 /* ChatBetwwenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0404297D222825B100778D01 /* ChatBetwwenViewModel.swift */; };
+		0406AC3F224A87DF009D4ED2 /* GetMyLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0406AC3E224A87DE009D4ED2 /* GetMyLocation.swift */; };
 		2700FC2321ABF9C90035266F /* DeliveryOrdersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2700FC2221ABF9C90035266F /* DeliveryOrdersController.swift */; };
 		2700FC2721ABFA290035266F /* DeliveryOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2700FC2621ABFA290035266F /* DeliveryOrdersView.swift */; };
 		2700FC2C21AC10490035266F /* ProductPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2700FC2B21AC10490035266F /* ProductPageController.swift */; };
@@ -122,12 +123,30 @@
 		89090C0619C98E5D6E04F976 /* Pods_manadeeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3413ADEA2E3ED2E32F6585 /* Pods_manadeeb.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		04FF303A222EB4D90059523D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		04034E8921B3E4CB00375B7E /* JF-Flat-regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "JF-Flat-regular.otf"; path = "manadeeb/Fonts/JF-Flat-regular.otf"; sourceTree = SOURCE_ROOT; };
 		04034E8A21B3E4CB00375B7E /* Droid.Arabic.Kufi_DownloadSoftware.iR_.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Droid.Arabic.Kufi_DownloadSoftware.iR_.ttf; path = manadeeb/Fonts/Droid.Arabic.Kufi_DownloadSoftware.iR_.ttf; sourceTree = SOURCE_ROOT; };
 		04034E8F21B3EC5200375B7E /* URWGeometricArabic-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "URWGeometricArabic-Black.ttf"; path = "manadeeb/Fonts/URWGeometricArabic-Black.ttf"; sourceTree = SOURCE_ROOT; };
 		0404297A2228259B00778D01 /* ChatBetwwenModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatBetwwenModel.swift; path = "../../../manadeeb 2/manadeeb/chatPage/ChatBetwwenModel.swift"; sourceTree = "<group>"; };
 		0404297D222825B100778D01 /* ChatBetwwenViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatBetwwenViewModel.swift; path = "../../../manadeeb 2/manadeeb/chatPage/ViewModel/ChatBetwwenViewModel.swift"; sourceTree = "<group>"; };
+		0406AC3D224A564F009D4ED2 /* manadeeb.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = manadeeb.entitlements; sourceTree = "<group>"; };
+		0406AC3E224A87DE009D4ED2 /* GetMyLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMyLocation.swift; sourceTree = "<group>"; };
+		04FF303B222EB5A60059523D /* Paytabs-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Paytabs-Bridging-Header.h"; path = "../../../Documents/tekdar/tekdar/Paytabs-Bridging-Header.h"; sourceTree = "<group>"; };
+		04FF303D222EB84A0059523D /* paytabs-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "paytabs-iOS.framework"; path = "../../../Downloads/Live 2/paytabs-iOS.framework"; sourceTree = "<group>"; };
+		04FF303E222EB84A0059523D /* Resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Resources.bundle; path = "../../../Downloads/Live 2/Resources.bundle"; sourceTree = "<group>"; };
 		2700FC2221ABF9C90035266F /* DeliveryOrdersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryOrdersController.swift; sourceTree = "<group>"; };
 		2700FC2621ABFA290035266F /* DeliveryOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryOrdersView.swift; sourceTree = "<group>"; };
 		2700FC2B21AC10490035266F /* ProductPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPageController.swift; sourceTree = "<group>"; };
@@ -289,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				270A419E21A9709B0080F330 /* MainPageController.swift */,
+				0406AC3E224A87DE009D4ED2 /* GetMyLocation.swift */,
 			);
 			path = MainPageController;
 			sourceTree = "<group>";
@@ -429,6 +449,8 @@
 		270A416421A96E510080F330 /* manadeeb */ = {
 			isa = PBXGroup;
 			children = (
+				0406AC3D224A564F009D4ED2 /* manadeeb.entitlements */,
+				04FF303B222EB5A60059523D /* Paytabs-Bridging-Header.h */,
 				2714FF4021BD237000D2A009 /* Fonts */,
 				27EBBB2E21B6B1E00017AF30 /* Api */,
 				270A419421A96E7D0080F330 /* assets */,
@@ -1127,6 +1149,8 @@
 		9C4D0152B50ED8B5C20C82EC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04FF303D222EB84A0059523D /* paytabs-iOS.framework */,
+				04FF303E222EB84A0059523D /* Resources.bundle */,
 				AD3413ADEA2E3ED2E32F6585 /* Pods_manadeeb.framework */,
 			);
 			name = Frameworks;
@@ -1145,6 +1169,7 @@
 				270A416021A96E510080F330 /* Resources */,
 				58697E08E5047BA6C0CD314C /* [CP] Embed Pods Frameworks */,
 				3A3B6CC53184A2E367F0362B /* [CP] Copy Pods Resources */,
+				04FF303A222EB4D90059523D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1168,6 +1193,11 @@
 					270A416121A96E510080F330 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1219,9 +1249,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlacePicker.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1342,6 +1370,7 @@
 				27E9195121AAF03B00FB7CF5 /* ChatPageController.swift in Sources */,
 				27E9195321AAF04700FB7CF5 /* ChatPageView.swift in Sources */,
 				277D05C321BBD11900FE293F /* ClientViewModel.swift in Sources */,
+				0406AC3F224A87DF009D4ED2 /* GetMyLocation.swift in Sources */,
 				277D05B921BBD09D00FE293F /* ClientIntractor.swift in Sources */,
 				277D05D321BC11C100FE293F /* OrdersModel.swift in Sources */,
 				27D8E6C021B813A7008FDD46 /* MatchingData.temp_caseinsensitive_rename.swift in Sources */,
@@ -1514,12 +1543,83 @@
 			baseConfigurationReference = DEE6EC60A4CD1B9C1C820A68 /* Pods-manadeeb.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = manadeeb/manadeeb.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 462YD86X5Y;
+				DEVELOPMENT_TEAM = FP8K6B72Q6;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Podfile\"/**";
 				INFOPLIST_FILE = manadeeb/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "hossam-ahmed.manadeeb";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-iquote",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers\"",
+					"-iquote",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FSCalendar/FSCalendar.framework/Headers\"",
+					"-iquote",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Socket.IO-Client-Swift/SocketIO.framework/Headers\"",
+					"-iquote",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Starscream/Starscream.framework/Headers\"",
+					"-iquote",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftyJSON/SwiftyJSON.framework/Headers\"",
+					"-iquote",
+					"\"$(SRCROOT)/../../Documents/tekdar/tekdar/Paytabs-Bridging-Header.h\"",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-all_load",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreImage\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"FSCalendar\"",
+					"-framework",
+					"\"GLKit\"",
+					"-framework",
+					"\"GoogleMaps\"",
+					"-framework",
+					"\"GoogleMapsBase\"",
+					"-framework",
+					"\"GoogleMapsCore\"",
+					"-framework",
+					"\"GooglePlacePicker\"",
+					"-framework",
+					"\"GooglePlaces\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SocketIO\"",
+					"-framework",
+					"\"Starscream\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = codesroots.manadeeb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/mac/Desktop/Documents/tekdar/tekdar/Paytabs-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1530,12 +1630,67 @@
 			baseConfigurationReference = 55846B8F0F583DC402E1630B /* Pods-manadeeb.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = manadeeb/manadeeb.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 462YD86X5Y;
+				DEVELOPMENT_TEAM = FP8K6B72Q6;
 				INFOPLIST_FILE = manadeeb/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "hossam-ahmed.manadeeb";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-all_load",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreImage\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"FSCalendar\"",
+					"-framework",
+					"\"GLKit\"",
+					"-framework",
+					"\"GoogleMaps\"",
+					"-framework",
+					"\"GoogleMapsBase\"",
+					"-framework",
+					"\"GoogleMapsCore\"",
+					"-framework",
+					"\"GooglePlacePicker\"",
+					"-framework",
+					"\"GooglePlaces\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SocketIO\"",
+					"-framework",
+					"\"Starscream\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = codesroots.manadeeb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/mac/Desktop/Documents/tekdar/tekdar/Paytabs-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

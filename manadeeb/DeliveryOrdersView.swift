@@ -22,7 +22,7 @@ class DeliveryOrdersView: BaseCell  {
             
             logoImage.loadImageUsingUrlString((data?.client.logo)!)
              namelabel.text = data!.client.name
-            PriceLbel.text = "ثمن الطلبية : \(data!.totalResult)"
+            PriceLbel.text = "ثمن الطلبية : \(data!.totalResult!)"
             waitedMoney.text = "مستحقات سابقة : \(data!.waitedMony)"
             dateLabel.text =  "تاريخ الاستلام : \(data!.orderDate)"
         }

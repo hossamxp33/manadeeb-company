@@ -10,7 +10,9 @@ import UIKit
 import Foundation
 
 protocol ChatRouterProtocol {
-      func goToDelivryLocation(lat : String,long : String )
+      func goToDelivryLocation(lat:Double,long : Double )
+    func goToChatpage(presentingViewController: UIViewController ,data:Delivry,roomid: String , userid  : Int)
+
 }
 
 class ChatRouter: ChatRouterProtocol {
@@ -32,8 +34,26 @@ class ChatRouter: ChatRouterProtocol {
         return presenter
 
     }
+    func goToChatpage(presentingViewController: UIViewController,data:Delivry,roomid : String , userid  : Int){
 
-    func goToDelivryLocation(lat : String,long : String ) {
+        guard let navigationController = presentingViewController.navigationController else {
+            return
+        }
+
+        let layout = UICollectionViewFlowLayout()
+        let featuredAppsController = ChatPageController(collectionViewLayout:layout )
+        let interactor: ChatIntractorProtocol = ChatIntractor()
+        let router:ChatRouterProtocol = ChatRouter(presentingViewController: featuredAppsController)
+        let presenter: ChatPresenterProtocol  = ChatPresenter(interactor: interactor, router: router)
+        featuredAppsController.prsenter = presenter
+        featuredAppsController.roomid = roomid
+        featuredAppsController.userid = userid
+        featuredAppsController.data = [data]
+
+        navigationController.pushViewController(featuredAppsController, animated: true)
+
+    }
+    func goToDelivryLocation(lat : Double,long : Double ) {
         guard let navigationController = presentingViewController.navigationController else {
             return
         }

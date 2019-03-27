@@ -17,12 +17,10 @@ class ClientOredersController : UICollectionViewController , UICollectionViewDel
     var data = [ClientOrderViewModel]()
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
-     
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.cell, for: indexPath) as! ClientOredersView
-       
         cell.data = data [indexPath.item]
         cell.controller = self
         cell.prsenter = prsenter
